@@ -1,1 +1,1 @@
-        // Handle the last run
+cout << "Enter a string to process: ";

@@ -4,7 +4,6 @@ using namespace std;
 
 int main()
 {
-    cout << "Enter the number of cases: ";
     int numberOfCases;
     cin >> numberOfCases;
 
@@ -14,7 +13,6 @@ int main()
     {
         string alphabetString;
 
-        cout << "Enter a string to process: ";
         cin.ignore();  // Clear the input buffer
         getline(cin, alphabetString); // getting the input from the user
 
