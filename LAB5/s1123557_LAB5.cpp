@@ -77,25 +77,24 @@ int main()
         {
             if (isalpha(c))
             {
-                int letterCount = count(userInput.begin(), userInput.end(), c); //Counting letter repetition using count()
+                int letterCount = count(userInput.begin(), userInput.end(), c); // Counting letter repetition using count()
 
                 if (letterCount > 2) // avoiding more than three repetitions
                 {
                     break;
-                    
-                } else if (letterCount == 2)
+                }
+                else if (letterCount == 2)
                 {
                     repeatedTwice.push_back(userInput);
                     break;
-                    
-                }  
+                }
             }
         }
-        //Checking number of words using isalpha()
+        // Checking number of words using isalpha()
 
         for (int i = 0; i < userInput.length(); i++)
         {
-            if (isalpha(userInput[i])) 
+            if (isalpha(userInput[i]))
             {
                 numberOfWords++;
                 break;
@@ -111,7 +110,7 @@ int main()
     {
         char firstCharacter = mainString[i].at(0);
 
-        //First Character counting
+        // First Character counting
 
         if (firstCharacter == 'a' || firstCharacter == toupper('A'))
         {
@@ -239,47 +238,47 @@ int main()
         case 2:
             twoLetterWords++;
             break;
-            case 3:
+        case 3:
             threeLetterWords++;
             break;
-            case 4:
+        case 4:
             fourLetterWords++;
             break;
-            case 5:
+        case 5:
             fiveLetterWords++;
             break;
-            case 6:
+        case 6:
             sixLetterWords++;
             break;
-            case 7:
+        case 7:
             sevenLetterWords++;
             break;
-            case 8:
+        case 8:
             eightLetterWords++;
             break;
-            case 9:
+        case 9:
             nineLetterWords++;
             break;
-            case 10:
+        case 10:
             tenLetterWords++;
             break;
-            case 11:
+        case 11:
             elevenLetterWords++;
             break;
 
-            case 12:
+        case 12:
             twelveLetterWords++;
             break;
 
-            case 13:
+        case 13:
             thirteenLetterWords++;
             break;
 
-            case 14:
+        case 14:
             fourteenLetterWords++;
             break;
 
-            case 15:
+        case 15:
             fifteenLetterWords++;
             break;
 
