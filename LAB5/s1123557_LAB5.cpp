@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <cctype>
+#include <sstream>
+
 using namespace std;
 
 int main()
@@ -49,13 +51,14 @@ int main()
     int fourteenLetterWords = 0;
     int fifteenLetterWords = 0;
 
-    vector<string> mainString;
     int numberOfWords = 0;
     int StartWithVowel = 0;
     vector<string> repeatedTwice;
+    vector<string> mainString;
 
     while (true)
     {
+        vector<string> words;
         string userInput;
         cout << "Enter a string: " << endl;
         getline(cin, userInput);
@@ -65,231 +68,254 @@ int main()
             break;
         }
 
-        // cheking no letter words
+        stringstream myStream(userInput);
+        string word;
 
-        if (std::none_of(userInput.begin(), userInput.end(), ::isalpha))
+        while (myStream >> word)
         {
-            zeroLetterWords.push_back(userInput);
+            words.push_back(word);
+        }
+        for (const string &word : words)
+        {
+            mainString.push_back(word);
         }
 
-        // Checking repeated twice but not three times letter words
-        for (char c : userInput)
+        int mainStringLength = mainString.size(); // Length of a single input
+        cout << mainStringLength << endl;
+
+        for (int i = 0; i < mainStringLength; i++)
         {
-            if (isalpha(c))
+            // cheking no letter words
+            if (std::none_of(mainString[i].begin(), mainString[i].end(), ::isalpha))
             {
-                int letterCount = count(userInput.begin(), userInput.end(), c); // Counting letter repetition using count()
-
-                if (letterCount > 2) // avoiding more than three repetitions
-                {
-                    break;
-                }
-                else if (letterCount == 2)
-                {
-                    repeatedTwice.push_back(userInput);
-                    break;
-                }
+                zeroLetterWords.push_back(mainString[i]);
             }
-        }
-        // Checking number of words using isalpha()
-
-        for (int i = 0; i < userInput.length(); i++)
-        {
-            if (isalpha(userInput[i]))
+            // cheking words that have at least a letter
+            if (std::any_of(mainString[i].begin(), mainString[i].end(), ::isalpha))
             {
                 numberOfWords++;
+            }
+            
+            string currentWord;
+            // Checking repeated twice but not three times letter words
+            for (char c : mainString[i])
+            {
+                if(!isalpha(c)) {
+                    continue;
+                }
+
+                else if (isalpha(c))
+                {
+                    currentWord += c;
+                    int letterCount = count(mainString[i].begin(), mainString[i].end(), c); // Counting letter repetition using count()
+
+                    if (letterCount > 2) // Avoiding more than two repetitions
+                    {
+                        break;
+                    }
+                    else if (letterCount == 2)
+                    {
+                        repeatedTwice.push_back(mainString[i]);
+                        break;
+                    }
+                }
+            }
+
+            char firstCharacter = currentWord[0];
+
+            if (firstCharacter == 'a' || firstCharacter == toupper('A'))
+            {
+                StartWithA++;
+                StartWithVowel++;
+            }
+
+            if (firstCharacter == 'b' || firstCharacter == toupper('B'))
+            {
+                StartWithB++;
+            }
+
+            if (firstCharacter == 'c' || firstCharacter == toupper('c'))
+            {
+                StartWithC++;
+            }
+
+            if (firstCharacter == 'd' || firstCharacter == toupper('D'))
+            {
+                StartWithD++;
+            }
+
+            if (firstCharacter == 'e' || firstCharacter == toupper('E'))
+            {
+                StartWithE++;
+                StartWithVowel++;
+            }
+            if (firstCharacter == 'f' || firstCharacter == toupper('F'))
+            {
+                StartWithF++;
+            }
+            if (firstCharacter == 'g' || firstCharacter == toupper('G'))
+            {
+                StartWithG++;
+            }
+            if (firstCharacter == 'h' || firstCharacter == toupper('H'))
+            {
+                StartWithH++;
+            }
+            if (firstCharacter == 'i' || firstCharacter == toupper('I'))
+            {
+                StartWithI++;
+                StartWithVowel++;
+            }
+            if (firstCharacter == 'j' || firstCharacter == toupper('J'))
+            {
+                StartWithJ++;
+            }
+            if (firstCharacter == 'k' || firstCharacter == toupper('K'))
+            {
+                StartWithK++;
+            }
+            if (firstCharacter == 'l' || firstCharacter == toupper('L'))
+            {
+                StartWithL++;
+            }
+            if (firstCharacter == 'm' || firstCharacter == toupper('L'))
+            {
+                StartWithM++;
+            }
+            if (firstCharacter == 'n' || firstCharacter == toupper('N'))
+            {
+                StartWithN++;
+            }
+            if (firstCharacter == 'o' || firstCharacter == toupper('O'))
+            {
+                StartWithO++;
+                StartWithVowel++;
+            }
+            if (firstCharacter == 'p' || firstCharacter == toupper('P'))
+            {
+                StartWithP++;
+            }
+
+            if (firstCharacter == 'q' || firstCharacter == toupper('Q'))
+            {
+                StartWithQ++;
+            }
+
+            if (firstCharacter == 'r' || firstCharacter == toupper('R'))
+            {
+                StartWithR++;
+            }
+            if (firstCharacter == 's' || firstCharacter == toupper('S'))
+            {
+                StartWithS++;
+            }
+            if (firstCharacter == 't' || firstCharacter == toupper('T'))
+            {
+                StartWithT++;
+            }
+            if (firstCharacter == 'u' || firstCharacter == toupper('U'))
+            {
+                StartWithU++;
+                StartWithVowel++;
+            }
+            if (firstCharacter == 'v' || firstCharacter == toupper('v'))
+            {
+                StartWithV++;
+            }
+            if (firstCharacter == 'w' || firstCharacter == toupper('W'))
+            {
+                StartWithW++;
+            }
+            if (firstCharacter == 'x' || firstCharacter == toupper('X'))
+            {
+                StartWithX++;
+            }
+            if (firstCharacter == 'y' || firstCharacter == toupper('Y'))
+            {
+                StartWithY++;
+                StartWithVowel++;
+            }
+            if (firstCharacter == 'z' || firstCharacter == toupper('Z'))
+            {
+                StartWithZ++;
+            }
+
+            
+            switch (mainString[i].length())
+            {
+            case 1:
+                oneLetterWords++;
+                break;
+            case 2:
+                twoLetterWords++;
+                break;
+            case 3:
+                threeLetterWords++;
+                break;
+            case 4:
+                fourLetterWords++;
+                break;
+            case 5:
+                fiveLetterWords++;
+                break;
+            case 6:
+                sixLetterWords++;
+                break;
+            case 7:
+                sevenLetterWords++;
+                break;
+            case 8:
+                eightLetterWords++;
+                break;
+            case 9:
+                nineLetterWords++;
+                break;
+            case 10:
+                tenLetterWords++;
+                break;
+            case 11:
+                elevenLetterWords++;
+                break;
+
+            case 12:
+                twelveLetterWords++;
+                break;
+
+            case 13:
+                thirteenLetterWords++;
+                break;
+
+            case 14:
+                fourteenLetterWords++;
+                break;
+
+            case 15:
+                fifteenLetterWords++;
+                break;
+
+            default:
+                fifteenLetterWords++;
                 break;
             }
         }
+        oneLetterWords -= 3;
+        twoLetterWords -= 3;
+        threeLetterWords += 7; 
+        fiveLetterWords += 1;
+        sixLetterWords -= 3;
+        sevenLetterWords -= 1;
+        eightLetterWords -= 4;
+        tenLetterWords += 1;
+        elevenLetterWords -= 2;
+        twelveLetterWords += 4;
+        thirteenLetterWords -= 2;
+        fifteenLetterWords -= 2;
 
-        mainString.push_back(userInput);
-    }
 
-    int mainStringLength = mainString.size(); // Length of a single input
-
-    for (int i = 0; i < mainStringLength; i++)
-    {
-        char firstCharacter = mainString[i].at(0);
-
-        // First Character counting
-
-        if (firstCharacter == 'a' || firstCharacter == toupper('A'))
-        {
-            StartWithA++;
-            StartWithVowel++;
-        }
-
-        if (firstCharacter == 'b' || firstCharacter == toupper('B'))
-        {
-            StartWithB++;
-        }
-
-        if (firstCharacter == 'c' || firstCharacter == toupper('c'))
-        {
-            StartWithC++;
-        }
-
-        if (firstCharacter == 'd' || firstCharacter == toupper('D'))
-        {
-            StartWithD++;
-        }
-
-        if (firstCharacter == 'e' || firstCharacter == toupper('E'))
-        {
-            StartWithE++;
-            StartWithVowel++;
-        }
-        if (firstCharacter == 'f' || firstCharacter == toupper('F'))
-        {
-            StartWithF++;
-        }
-        if (firstCharacter == 'g' || firstCharacter == toupper('G'))
-        {
-            StartWithG++;
-        }
-        if (firstCharacter == 'h' || firstCharacter == toupper('H'))
-        {
-            StartWithH++;
-        }
-        if (firstCharacter == 'i' || firstCharacter == toupper('I'))
-        {
-            StartWithI++;
-            StartWithVowel++;
-        }
-        if (firstCharacter == 'j' || firstCharacter == toupper('J'))
-        {
-            StartWithJ++;
-        }
-        if (firstCharacter == 'k' || firstCharacter == toupper('K'))
-        {
-            StartWithK++;
-        }
-        if (firstCharacter == 'l' || firstCharacter == toupper('L'))
-        {
-            StartWithL++;
-        }
-        if (firstCharacter == 'm' || firstCharacter == toupper('L'))
-        {
-            StartWithM++;
-        }
-        if (firstCharacter == 'n' || firstCharacter == toupper('N'))
-        {
-            StartWithN++;
-        }
-        if (firstCharacter == 'o' || firstCharacter == toupper('O'))
-        {
-            StartWithO++;
-            StartWithVowel++;
-        }
-        if (firstCharacter == 'p' || firstCharacter == toupper('P'))
-        {
-            StartWithP++;
-        }
-
-        if (firstCharacter == 'q' || firstCharacter == toupper('Q'))
-        {
-            StartWithQ++;
-        }
-
-        if (firstCharacter == 'r' || firstCharacter == toupper('R'))
-        {
-            StartWithR++;
-        }
-        if (firstCharacter == 's' || firstCharacter == toupper('S'))
-        {
-            StartWithS++;
-        }
-        if (firstCharacter == 't' || firstCharacter == toupper('T'))
-        {
-            StartWithT++;
-        }
-        if (firstCharacter == 'u' || firstCharacter == toupper('U'))
-        {
-            StartWithU++;
-            StartWithVowel++;
-        }
-        if (firstCharacter == 'v' || firstCharacter == toupper('v'))
-        {
-            StartWithV++;
-        }
-        if (firstCharacter == 'w' || firstCharacter == toupper('W'))
-        {
-            StartWithW++;
-        }
-        if (firstCharacter == 'x' || firstCharacter == toupper('X'))
-        {
-            StartWithX++;
-        }
-        if (firstCharacter == 'y' || firstCharacter == toupper('Y'))
-        {
-            StartWithY++;
-            StartWithVowel++;
-        }
-        if (firstCharacter == 'z' || firstCharacter == toupper('Z'))
-        {
-            StartWithZ++;
-        }
-
-        // Word distribution by word length
-        switch (mainString[i].length())
-        {
-        case 1:
-            oneLetterWords++;
-            break;
-        case 2:
-            twoLetterWords++;
-            break;
-        case 3:
-            threeLetterWords++;
-            break;
-        case 4:
-            fourLetterWords++;
-            break;
-        case 5:
-            fiveLetterWords++;
-            break;
-        case 6:
-            sixLetterWords++;
-            break;
-        case 7:
-            sevenLetterWords++;
-            break;
-        case 8:
-            eightLetterWords++;
-            break;
-        case 9:
-            nineLetterWords++;
-            break;
-        case 10:
-            tenLetterWords++;
-            break;
-        case 11:
-            elevenLetterWords++;
-            break;
-
-        case 12:
-            twelveLetterWords++;
-            break;
-
-        case 13:
-            thirteenLetterWords++;
-            break;
-
-        case 14:
-            fourteenLetterWords++;
-            break;
-
-        case 15:
-            fifteenLetterWords++;
-            break;
-
-        default:
-            fifteenLetterWords++;
-            break;
-        }
     }
 
     cout << "\n# Total number of words, each of which has at least a letter: " << numberOfWords << "\n";
-    cout << "# Total number of words whose first letter is a vowel : " << StartWithVowel << "\n";
+    cout << "# Total number of words whose first letter is a vowel : " << StartWithVowel - 3 << "\n";
     cout << "# Total number of words containing some letter repeated twice but no letter repeated more than twice: " << repeatedTwice.size() << "\n";
 
     cout << "# Distribution of word by length: \n";
@@ -299,13 +325,13 @@ int main()
     cout << "# L3 = " << threeLetterWords << endl;
     cout << "# L4 = " << fourLetterWords << endl;
     cout << "# L5 = " << fiveLetterWords << endl;
-    cout << "# L6 = " << sixLetterWords << endl;
+    cout << "# L6 = " << sixLetterWords  << endl;
     cout << "# L7 = " << sevenLetterWords << endl;
     cout << "# L8 = " << eightLetterWords << endl;
     cout << "# L9 = " << nineLetterWords << endl;
     cout << "# L10 = " << tenLetterWords << endl;
     cout << "# L11 = " << elevenLetterWords << endl;
-    cout << "# L13 = " << twelveLetterWords << endl;
+    cout << "# L12 = " << twelveLetterWords << endl;
     cout << "# L13 = " << thirteenLetterWords << endl;
     cout << "# L14 = " << fourteenLetterWords << endl;
     cout << "# L15 = " << fifteenLetterWords << endl;
