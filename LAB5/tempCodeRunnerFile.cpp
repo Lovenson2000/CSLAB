@@ -1,0 +1,1 @@
+numLetters += 1;
