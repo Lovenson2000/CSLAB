@@ -300,7 +300,7 @@ int main()
         }
         oneLetterWords -= 3;
         twoLetterWords -= 3;
-        threeLetterWords += 7; 
+        threeLetterWords += 7;
         fiveLetterWords += 1;
         sixLetterWords -= 3;
         sevenLetterWords -= 1;
@@ -310,8 +310,6 @@ int main()
         twelveLetterWords += 4;
         thirteenLetterWords -= 2;
         fifteenLetterWords -= 2;
-
-
     }
 
     cout << "\n# Total number of words, each of which has at least a letter: " << numberOfWords << "\n";
