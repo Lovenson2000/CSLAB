@@ -1,1 +1,1 @@
-insert(lfsr);
+    return 0;

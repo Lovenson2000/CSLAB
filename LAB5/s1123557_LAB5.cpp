@@ -298,22 +298,11 @@ int main()
                 break;
             }
         }
-        oneLetterWords -= 3;
-        twoLetterWords -= 3;
-        threeLetterWords += 7;
-        fiveLetterWords += 1;
-        sixLetterWords -= 3;
-        sevenLetterWords -= 1;
-        eightLetterWords -= 4;
-        tenLetterWords += 1;
-        elevenLetterWords -= 2;
-        twelveLetterWords += 4;
-        thirteenLetterWords -= 2;
-        fifteenLetterWords -= 2;
+        
     }
 
     cout << "\n# Total number of words, each of which has at least a letter: " << numberOfWords << "\n";
-    cout << "# Total number of words whose first letter is a vowel : " << StartWithVowel - 3 << "\n";
+    cout << "# Total number of words whose first letter is a vowel : " << StartWithVowel << "\n";
     cout << "# Total number of words containing some letter repeated twice but no letter repeated more than twice: " << repeatedTwice.size() << "\n";
 
     cout << "# Distribution of word by length: \n";
