@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/lovensonbeaucicot/Desktop/yuanze/LabCompScience/homework/LAB7",
+      "program": "/Users/lovensonbeaucicot/Desktop/yuanze/LabCompScience/homework/LAB7/build/Debug/outDebug"
+    }
+  ]
+}
