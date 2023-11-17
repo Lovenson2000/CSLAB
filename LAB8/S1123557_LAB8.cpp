@@ -74,26 +74,48 @@ int main()
                 findMin(arrayNumbers + i, arraySize - i, minValue, minIndex);
                 swap(arrayNumbers[i], arrayNumbers[i + minIndex]);
             }
+
+            //Output format for ten numbers or less
             if (arraySize <= 10)
             {
-                cout << "##";
+                cout << "## ";
                 for (int i = 0; i < arraySize; i++)
                 {
                     cout << arrayNumbers[i] << " ";
                 }
-            } else if(arraySize > 10){
-                cout << "##";
+                //Output format for more than ten numbers and less than 21
+            } else if(arraySize > 10 && arraySize <= 20){
+                cout << "## ";
                 for (int i = 0; i < 10; i++)
                 {
                     cout << arrayNumbers[i] << " ";
                     
                 }
-                cout << "\n#";
+                cout << "\n# ";
                 for (int i = 10; i < arraySize; i++)
                 {
                     cout << arrayNumbers[i] << " ";      
                 }
-            }
+                //Output format for more than 20 numbers
+            } else if(arraySize > 20){
+                cout << "## ";
+                for (int i = 0; i < 10; i++)
+                {
+                    cout << arrayNumbers[i] << " ";
+                    
+                }
+                cout << "\n# ";
+                for (int i = 10; i < 20; i++)
+                {
+                    cout << arrayNumbers[i] << " ";      
+                }
+
+                cout << "\n# ";
+                for (int i = 20; i < arraySize; i++)
+                {
+                    cout << arrayNumbers[i] << " ";      
+                }
+            } 
 
             cout << "\n";
 
