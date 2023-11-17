@@ -48,24 +48,24 @@ int main()
         {
             numbers.push_back(inputNumber);
 
-            if (cin.get() == '\n')
+            if (cin.eof() || cin.get() == '\n')
             {
                 break;
             }
         }
 
         // Check if there are enough elements to form a valid array
-        if (numbers.size() > 2 || numbers.size() < 1024)
+        if (numbers.size() >= 2 && numbers.size() < 1024)
         {
-            // Extract the size from the first element
+            // Set the first element as the size of the array
             int arraySize = numbers[0];
 
             // Initialize arrayNumbers with the remaining elements
             int arrayNumbers[arraySize];
             for (int i = 0; i < arraySize; i++)
             {
-                arrayNumbers[i] = numbers[i + 1];
-            }
+                arrayNumbers[i] = numbers[i + 1]; // i + 1 because the first element will be ignored and used as the size
+            } 
 
             // Perform sorting
             for (int i = 0; i < arraySize; i++)
@@ -75,47 +75,18 @@ int main()
                 swap(arrayNumbers[i], arrayNumbers[i + minIndex]);
             }
 
-            //Output format for ten numbers or less
-            if (arraySize <= 10)
-            {
-                cout << "## ";
-                for (int i = 0; i < arraySize; i++)
+            int maxIndex;
+            int maxNumber = findMax(arrayNumbers, arraySize, maxIndex);
+            arrayNumbers[arraySize - 1] = maxNumber; // setting the bigest value as the last element of the array
+            
+            cout << "## " << arrayNumbers[0] << " ";
+                for (int i = 1; i < arraySize; i++)
                 {
+                    if(i % 10 == 0) {
+                        cout << "\n# ";
+                    }
                     cout << arrayNumbers[i] << " ";
-                }
-                //Output format for more than ten numbers and less than 21
-            } else if(arraySize > 10 && arraySize <= 20){
-                cout << "## ";
-                for (int i = 0; i < 10; i++)
-                {
-                    cout << arrayNumbers[i] << " ";
-                    
-                }
-                cout << "\n# ";
-                for (int i = 10; i < arraySize; i++)
-                {
-                    cout << arrayNumbers[i] << " ";      
-                }
-                //Output format for more than 20 numbers
-            } else if(arraySize > 20){
-                cout << "## ";
-                for (int i = 0; i < 10; i++)
-                {
-                    cout << arrayNumbers[i] << " ";
-                    
-                }
-                cout << "\n# ";
-                for (int i = 10; i < 20; i++)
-                {
-                    cout << arrayNumbers[i] << " ";      
-                }
-
-                cout << "\n# ";
-                for (int i = 20; i < arraySize; i++)
-                {
-                    cout << arrayNumbers[i] << " ";      
-                }
-            } 
+                }      
 
             cout << "\n";
 
