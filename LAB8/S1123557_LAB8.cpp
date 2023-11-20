@@ -79,6 +79,7 @@ int main()
             int maxNumber = findMax(arrayNumbers, arraySize, maxIndex);
             arrayNumbers[arraySize - 1] = maxNumber; // setting the bigest value as the last element of the array
             
+            //Handling the output format
             cout << "## " << arrayNumbers[0] << " ";
                 for (int i = 1; i < arraySize; i++)
                 {
