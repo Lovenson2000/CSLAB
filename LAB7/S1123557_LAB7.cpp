@@ -20,7 +20,7 @@ int main()
 
   int x = 1;
   int k;
-  double ClosetTo_ZeroPointSixThree = 0.63;
+  double ClosestTo_ZeroPointSixThree = 0.63;
   double BestWinProbability = 0;
   do{
     t1 = clock();
@@ -36,7 +36,7 @@ int main()
       }
     }
     WinProbability = NumOfWin / playTimes;
-    if(fabs(WinProbability - 0.63) < ClosetTo_ZeroPointSixThree)
+    if(fabs(WinProbability - 0.63) < ClosestTo_ZeroPointSixThree)
     {
       ClosestTo_ZeroPointSixThree = fabs(WinProbability - 0.63);
       BestWinProbability = WinProbability;
